@@ -156,12 +156,11 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
-      <SidebarHeader className="border-2 rounded-3xl">
+      <SidebarHeader className="border-2 h-25 rounded-3xl">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
-              size="null"
-              className="rounded-2xl bg-[#27272A]"
+              className=" h-full rounded-2xl bg-[#27272A]"
               asChild
             >
               <a href="#">
