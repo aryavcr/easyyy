@@ -1,11 +1,10 @@
 "use client";
 
 import * as React from "react";
-
+import Logo1 from "@/assets/logo.png";
 import {
   BookOpen,
   Bot,
-  Command,
   Frame,
   LifeBuoy,
   Map,
@@ -28,6 +27,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
 
 const data = {
   user: {
@@ -156,19 +156,21 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="border-2 rounded-3xl">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton
+              size="null"
+              className="rounded-2xl bg-[#27272A]"
+              asChild
+            >
               <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
+                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-16 items-center justify-center rounded-4xl">
+                  <Image className="" src={Logo1} alt="Image" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium text-lg">Easyyy</span>
-                  <span className="truncate text-xs italic text-red-300 ">
-                    for everything
-                  </span>
+                  <span>one app</span>
+                  <span>for everything</span>
                 </div>
               </a>
             </SidebarMenuButton>
