@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 import Logo1 from "@/assets/logo.png";
 import {
@@ -15,7 +14,9 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
+{
+  /*  import { NavProjects } from "@/components/nav-projects"; */
+}
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
@@ -28,7 +29,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
-
+import LetterSwapPingPong from "@/fancy/components/text/letter-swap-pingpong-anim";
 const data = {
   user: {
     name: "user",
@@ -37,7 +38,7 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
+      title: "Automations",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
@@ -57,7 +58,7 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Integrations",
       url: "#",
       icon: Bot,
       items: [
@@ -76,7 +77,7 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Docs",
       url: "#",
       icon: BookOpen,
       items: [
@@ -124,7 +125,7 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Help",
       url: "#",
       icon: LifeBuoy,
     },
@@ -156,6 +157,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
+      {/* Header(Easyyy logo section begins) */}
       <SidebarHeader className="border-2 h-25 rounded-3xl">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -163,27 +165,41 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className=" h-full rounded-2xl bg-[#27272A]"
               asChild
             >
-              <a href="#">
+              <a href="/automations">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-16 items-center justify-center rounded-4xl">
                   <Image className="" src={Logo1} alt="Image" />
                 </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span>one app</span>
-                  <span>for everything</span>
+                <div className="text-sm grid justify-items-start leading-tigh">
+                  <LetterSwapPingPong
+                    className="text-left"
+                    label="one app ✨"
+                    staggerFrom={"center"}
+                  />
+                  <LetterSwapPingPong
+                    className="text-left"
+                    label="for everything"
+                    staggerFrom={"center"}
+                  />
                 </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+      {/* Header(Easyyy logo section ends) */}
+
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* not needed within the current scope of our app
+          <NavProjects projects={data.projects} /> */}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
+
+      {/* Footer(User account section starts) */}
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
+      {/* Footer(User account section ends) */}
     </Sidebar>
   );
 }
