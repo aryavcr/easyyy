@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar />
-            <SidebarInset className="flex">
+            <SidebarInset className="flex items-start justify-start">
               <SidebarTrigger className="m-2" />
               {children}
             </SidebarInset>
