@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import LetterSwapPingPong from "@/fancy/components/text/letter-swap-pingpong-anim";
+import Link from "next/link";
 const data = {
   user: {
     name: "user",
@@ -39,7 +40,7 @@ const data = {
   navMain: [
     {
       title: "Automations",
-      url: "#",
+      url: "/automations",
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -59,7 +60,7 @@ const data = {
     },
     {
       title: "Integrations",
-      url: "#",
+      url: "/integrations",
       icon: Bot,
       items: [
         {
@@ -78,7 +79,7 @@ const data = {
     },
     {
       title: "Docs",
-      url: "#",
+      url: "/docs",
       icon: BookOpen,
       items: [
         {
@@ -101,7 +102,7 @@ const data = {
     },
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: Settings2,
       items: [
         {
@@ -165,7 +166,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className=" h-full rounded-2xl bg-[#27272A]"
               asChild
             >
-              <a href="/automations">
+              <Link href="#">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-16 items-center justify-center rounded-4xl">
                   <Image className="" src={Logo1} alt="Image" />
                 </div>
@@ -181,7 +182,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     staggerFrom={"center"}
                   />
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
