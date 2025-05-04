@@ -12,7 +12,7 @@ import {
   Settings2,
   SquareTerminal,
 } from "lucide-react";
-
+import { Inter } from "next/font/google";
 import { NavMain } from "@/components/nav-main";
 {
   /*  import { NavProjects } from "@/components/nav-projects"; */
@@ -31,6 +31,7 @@ import {
 import Image from "next/image";
 import LetterSwapPingPong from "@/fancy/components/text/letter-swap-pingpong-anim";
 import Link from "next/link";
+const inter = Inter({subsets: ['latin']})
 const data = {
   user: {
     name: "user",
@@ -170,7 +171,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-16 items-center justify-center rounded-4xl">
                   <Image className="" src={Logo1} alt="Image" />
                 </div>
-                <div className="text-sm grid justify-items-start leading-tigh">
+                <div className={`text ${inter.className} grid justify-items-start`}>
                   <LetterSwapPingPong
                     className="text-left"
                     label="one app ✨"
